@@ -1,0 +1,48 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  transition:
+    width 0.25s ease,
+    height 0.25s ease,
+    background-color 0.25s ease,
+    border 0.25s ease;
+
+  /* Default: small filled dot */
+  width: 14px;
+  height: 14px;
+  background-color: #ffffff;
+  border: 2px solid transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cursor--hover {
+  width: 72px;
+  height: 72px;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+}
+
+.cursor--hover .cursor-arrow {
+  opacity: 1;
+}
+
+.cursor-arrow {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  color: #ffffff;
+}
+
+@media (pointer: coarse) {
+  .cursor {
+    display: none;
+  }
+}

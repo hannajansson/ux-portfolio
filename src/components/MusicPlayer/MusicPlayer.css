@@ -1,0 +1,6 @@
+.music-player-wrap {
+  position: fixed;
+  bottom: 28px;
+  right: var(--space-page);
+  z-index: 200;
+}

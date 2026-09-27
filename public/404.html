@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      // GitHub Pages SPA redirect
+      // Deep URLs (e.g. /ux-portfolio/projects/foo) don't map to files, so GitHub
+      // serves this 404 page instead. We encode the intended path into a query
+      // param and redirect to /ux-portfolio/ so index.html can restore it.
+      (function () {
+        var base = '/ux-portfolio';
+        var path = window.location.pathname.slice(base.length) || '/';
+        var search = window.location.search ? '&q=' + encodeURIComponent(window.location.search.slice(1)) : '';
+        window.location.replace(
+          window.location.origin + base + '/?p=' + encodeURIComponent(path) + search + window.location.hash
+        );
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,72 @@
+.banner {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid var(--color-white-20);
+  border-bottom: 1px solid var(--color-white-20);
+  padding: 10px 0;
+  background-color: var(--color-white);
+}
+
+.banner-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: max-content;
+  animation: banner-scroll 70s linear infinite;
+}
+
+.banner-item {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.banner-logo {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+.banner-logo--xs { height: 16px; }
+.banner-logo--sm { height: 28px; }
+.banner-logo--lg { height: 38px; }
+.banner-logo--xl { height: 52px; }
+
+/* ─── Light mode ──────────────────────────────────────────────────────────── */
+
+.light-mode .banner {
+  background-color: var(--color-black);
+  border-top-color: var(--color-white);
+  border-bottom-color: var(--color-white);
+}
+
+.banner-track--static {
+  width: 100%;
+  animation: none;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .banner-item {
+    padding: 0 8px;
+  }
+
+  .banner-track {
+    animation-duration: 42s;
+  }
+
+  .banner-logo--xs { height: 10px; }
+  .banner-logo--sm { height: 16px; }
+  .banner-logo--lg { height: 24px; }
+  .banner-logo--xl { height: 28px; }
+}
+
+@keyframes banner-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Move by exactly 50% — one full set of logos — for seamless loop */
+    transform: translateX(-50%);
+  }
+}

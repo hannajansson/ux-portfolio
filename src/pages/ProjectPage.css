@@ -1,0 +1,368 @@
+.pp {
+  padding-top: 100px; /* clear fixed header */
+}
+
+/* ─── Intro ───────────────────────────────────────────────────────────── */
+
+.pp-intro {
+  padding: 40px var(--space-page) 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pp-title {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-regular);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.pp-meta {
+  display: flex;
+  gap: 60px;
+  row-gap: 24px;
+  flex-wrap: wrap;
+}
+
+.pp-description {
+  font-size: var(--fs-body);
+  color: var(--color-white);
+  line-height: 1.7;
+  max-width: min(930px, 100%);
+}
+
+.pp-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pp-meta-label {
+  color: var(--color-white-60);
+}
+
+.pp-meta-value {
+  color: var(--color-white);
+}
+
+/* ─── Cover image ─────────────────────────────────────────────────────── */
+
+.pp-cover-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.pp-cover-wrap::after {
+  content: 'Compressed on purpose to save energy';
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 14, 14, 0.75);
+  color: #fff;
+  font-size: 11px;
+  font-family: var(--font-primary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 5px 10px;
+  border-radius: 2px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.pp-cover-wrap:hover::after {
+  animation: img-tooltip 2.2s ease forwards;
+}
+
+.pp-cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+
+.pp-cover--placeholder {
+  background-color: var(--color-placeholder-bg);
+  background-image:
+    linear-gradient(45deg, var(--color-placeholder-stripe) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--color-placeholder-stripe) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--color-placeholder-stripe) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--color-placeholder-stripe) 75%);
+  background-size: 8px 8px;
+  background-position: 0 0, 0 4px, 4px -4px, -4px 0;
+}
+
+/* ─── Stats strip ─────────────────────────────────────────────────────── */
+
+.pp-stats {
+  display: flex;
+  align-items: stretch;
+  border-top: 1px solid var(--color-white-20);
+  border-bottom: 1px solid var(--color-white-20);
+  margin: 0;
+}
+
+.pp-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+  padding: 60px var(--space-page);
+  border-right: 1px solid var(--color-white-20);
+}
+
+.pp-stat:last-child {
+  border-right: none;
+}
+
+@media (max-width: 768px) {
+  .pp-stats {
+    flex-direction: column;
+    border-bottom: none;
+  }
+
+  .pp-stat {
+    border-right: none;
+    border-bottom: 1px solid var(--color-white-20);
+    padding: 40px var(--space-page);
+  }
+}
+
+.pp-stat-value {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-regular);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--color-white);
+}
+
+.pp-stat-label {
+  color: var(--color-white-60);
+  width: 100%;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ─── Content body ────────────────────────────────────────────────────── */
+
+.pp-body {
+  padding: 0 var(--space-page);
+}
+
+/* ─── Section: text only ──────────────────────────────────────────────── */
+
+.pp-section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--color-white-20);
+}
+
+.pp-section:last-child {
+  border-bottom: none;
+}
+
+.pp-section-title {
+  font-size: var(--fs-body-small);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-white-60);
+  margin-bottom: 24px;
+}
+
+.pp-section-text {
+  font-size: var(--fs-body);
+  color: var(--color-white);
+  line-height: 1.7;
+  max-width: 640px;
+  white-space: pre-line; /* respects \n in the data */
+}
+
+.pp-section-extra-block {
+  margin-top: 60px;
+}
+
+/* ─── Section: text + image ───────────────────────────────────────────── */
+
+.pp-section--text-image {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.pp-section--image-left {
+  direction: ltr;
+}
+
+.pp-section--image-right .pp-section-media {
+  order: 2;
+}
+
+.pp-section--image-right .pp-section-copy {
+  order: 1;
+}
+
+.pp-section-media {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.pp-section-media::after {
+  content: 'Compressed on purpose to save energy';
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 14, 14, 0.75);
+  color: #fff;
+  font-size: 11px;
+  font-family: var(--font-primary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 5px 10px;
+  border-radius: 2px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.pp-section-media:hover::after {
+  animation: img-tooltip 2.2s ease forwards;
+}
+
+.pp-section-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.light-mode .pp-section-img {
+  transition: transform 0.6s ease;
+}
+
+.light-mode .pp-section-media:hover .pp-section-img {
+  transform: scale(1.05);
+}
+
+/* Cream paper background behind dithered canvas in energy mode */
+:not(.light-mode) .pp-cover-wrap,
+:not(.light-mode) .pp-section-media--energy {
+  background-color: rgb(232, 228, 218);
+}
+
+.pp-img-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-placeholder-bg);
+  background-image:
+    linear-gradient(45deg, var(--color-placeholder-stripe) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--color-placeholder-stripe) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--color-placeholder-stripe) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--color-placeholder-stripe) 75%);
+  background-size: 8px 8px;
+  background-position: 0 0, 0 4px, 4px -4px, -4px 0;
+}
+
+/* ─── Section: full image ─────────────────────────────────────────────── */
+
+.pp-section--full-image {
+  padding: 80px 0;
+  margin: 0 calc(-1 * var(--space-page)); /* bleed to edges */
+  position: relative;
+}
+
+.pp-section--full-image::after {
+  content: 'Compressed on purpose to save energy';
+  position: absolute;
+  bottom: 96px; /* sits above the 80px bottom padding */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 14, 14, 0.75);
+  color: #fff;
+  font-size: 11px;
+  font-family: var(--font-primary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 5px 10px;
+  border-radius: 2px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.pp-section--full-image:hover::after {
+  animation: img-tooltip 2.2s ease forwards;
+}
+
+.pp-full-img {
+  width: 100%;
+  display: block;
+}
+
+.pp-img-placeholder--full {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+
+/* ─── Prev / Next navigation ──────────────────────────────────────────── */
+
+.pp-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--color-white-20);
+  padding: 80px var(--space-page);
+}
+
+.pp-nav-link {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: none;
+  text-align: left;
+  transition: opacity var(--transition-fast);
+  max-width: 50%;
+}
+
+.pp-nav-link--next {
+  text-align: right;
+}
+
+.pp-nav-link:hover {
+  opacity: 0.6;
+}
+
+.pp-nav-project-title {
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-regular);
+  color: var(--color-white);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+@media (max-width: 768px) {
+  .pp-section--text-image {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .pp-section--image-left .pp-section-media,
+  .pp-section--image-right .pp-section-media {
+    order: 1;
+    width: 100%;
+  }
+
+  .pp-section--image-left .pp-section-copy,
+  .pp-section--image-right .pp-section-copy {
+    order: 2;
+  }
+}

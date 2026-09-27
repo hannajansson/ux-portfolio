@@ -1,0 +1,61 @@
+.work {
+  padding: 160px var(--space-page) 100px;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+
+.work-header {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin-bottom: 24px;
+}
+
+.work-title {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-regular);
+  letter-spacing: -0.02em;
+  text-transform: none;
+  line-height: 1;
+}
+
+/* ─── Filter buttons ─────────────────────────────────────────────────────── */
+
+.work-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+/* ─── Project grid ───────────────────────────────────────────────────────── */
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--color-white-20);
+  border-left: 1px solid var(--color-white-20);
+}
+
+/* ─── Mobile layout ──────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .work {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+
+  .work-header {
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .work-filters {
+    justify-content: flex-start;
+  }
+
+  .work-grid {
+    grid-template-columns: 1fr;
+    border-left: none;
+  }
+}

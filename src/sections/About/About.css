@@ -1,0 +1,110 @@
+.about {
+  padding: 70px var(--space-page) 100px;
+}
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 60px;
+  align-items: start;
+}
+
+/* ─── Left column ────────────────────────────────────────────────────────── */
+
+.about-left {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.about-heading {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-regular);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.about-bio {
+  color: var(--color-white);
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  max-width: 640px;
+}
+
+.about-lists {
+  display: flex;
+  gap: 60px;
+}
+
+.about-list-label {
+  margin-bottom: 16px;
+}
+
+.about-list ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.about-list li {
+  font-size: var(--fs-body);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-white);
+  line-height: 1.4;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────────────── */
+
+.about-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+/* ─── Right column ───────────────────────────────────────────────────────── */
+
+.about-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.about-photo {
+  width: 150%;
+  display: block;
+  object-fit: cover;
+}
+
+.about-photo-wrap {
+  position: relative;
+  overflow: hidden;
+  width: 150%;
+  flex-shrink: 0;
+  align-self: flex-start;
+  aspect-ratio: 3 / 4;
+  background-color: rgb(232, 228, 218);
+}
+
+/* ─── Mobile ─────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .about-right {
+    justify-content: flex-start;
+    margin-top: 32px;
+    order: 2;
+  }
+
+  .about-left {
+    order: 1;
+  }
+
+  .about-photo,
+  .about-photo-wrap {
+    width: 60%;
+  }
+}

@@ -1,0 +1,54 @@
+/* ─── Design Tokens ──────────────────────────────────────────────────────── */
+
+:root {
+  /* Colors */
+  --color-black: #0f0e0e;
+  --color-white: #ffffff;
+
+  /* Semantic opacity aliases — never use raw hex for grey, use these */
+  --color-white-60: rgba(255, 255, 255, 0.6);
+  --color-white-40: rgba(255, 255, 255, 0.4);
+  --color-white-20: rgba(255, 255, 255, 0.2);
+  --color-white-10: rgba(255, 255, 255, 0.1);
+
+  /* Font */
+  --font-primary: 'Switzer', Arial, sans-serif;
+
+  /* Font sizes */
+  --fs-h1: clamp(60px, 18.75vw, 270px);
+  --fs-h2: clamp(40px, 10.4vw, 150px);
+  --fs-h3: clamp(32px, 6.25vw, 90px);
+  --fs-h4: clamp(28px, 5.5vw, 80px);
+  --fs-h5: clamp(20px, 1.94vw, 28px);
+  --fs-body: 16px;
+  --fs-body-small: 14px;
+
+  /* Font weights */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  /* Spacing */
+  --space-page: clamp(24px, 4vw, 60px);
+
+  /* Placeholder pattern colors (always dark, not mode-aware) */
+  --color-placeholder-bg: #1a1919;
+  --color-placeholder-stripe: #222222;
+
+  /* Subtle hover tint */
+  --color-white-03: rgba(255, 255, 255, 0.03);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+}
+
+/* ─── Light mode overrides ────────────────────────────────────────────────── */
+
+.light-mode {
+  --color-black: #ffffff;
+  --color-white: #0f0e0e;
+  --color-white-60: rgba(15, 14, 14, 0.6);
+  --color-white-40: rgba(15, 14, 14, 0.4);
+  --color-white-20: rgba(15, 14, 14, 0.2);
+  --color-white-10: rgba(15, 14, 14, 0.1);
+}

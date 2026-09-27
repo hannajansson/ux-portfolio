@@ -1,0 +1,52 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px var(--space-page);
+  border-top: 1px solid var(--color-white-20);
+}
+
+.footer-copy {
+  color: var(--color-white-40);
+}
+
+/* ─── Carbon Badge ───────────────────────────────────────────────────────── */
+
+.footer-badge {
+  display: flex;
+  align-items: center;
+}
+
+/* Override badge colours to match the portfolio's black/white palette.
+   The badge injects its own <style> so we use !important to win specificity. */
+#wcb {
+  --b2: #ffd5e7 !important;
+}
+#wcb_p {
+  border: none !important;
+  border-radius: 4px !important;
+  overflow: hidden;
+}
+
+#wcb_g {
+  background: transparent !important;
+  color: var(--color-white) !important;
+  border-right: 1px solid var(--color-white-20) !important;
+  font-family: var(--font-primary) !important;
+  font-size: var(--fs-body-small) !important;
+}
+
+#wcb_a {
+  background: #ffd5e7 !important;
+  color: #0f0e0e !important;
+  font-family: var(--font-primary) !important;
+  font-size: var(--fs-body-small) !important;
+  border-color: #ffd5e7 !important;
+}
+
+#wcb_2 {
+  color: var(--color-white-40) !important;
+  font-family: var(--font-primary) !important;
+  font-size: var(--fs-body-small) !important;
+}
