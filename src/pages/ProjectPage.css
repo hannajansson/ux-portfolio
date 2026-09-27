@@ -59,7 +59,6 @@
   aspect-ratio: 16 / 9;
   display: block;
   object-fit: cover;
-  image-rendering: pixelated;
 }
 
 .pp-cover--placeholder {

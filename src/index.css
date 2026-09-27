@@ -9,6 +9,17 @@ div#root > div {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* ─── Page transition (logo → home) ─────────────────────────────────────── */
+
+.page-transition {
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+.page-transition--fading {
+  opacity: 0;
+}
+
 /* ─── Reset ──────────────────────────────────────────────────────────────── */
 
 *,

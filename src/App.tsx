@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { useState } from 'react'
 import { useRouter } from './hooks/useRouter'
 import { useScrollReveal } from './hooks/useScrollReveal'
 import { useDeferredClarity } from './hooks/useDeferredClarity'
@@ -8,7 +8,7 @@ import { LogoBanner } from './sections/LogoBanner/LogoBanner'
 import { SelectedWork } from './sections/SelectedWork/SelectedWork'
 import { About } from './sections/About/About'
 import { Footer } from './sections/Footer/Footer'
-const ProjectPage = lazy(() => import('./pages/ProjectPage').then(m => ({ default: m.ProjectPage })))
+import { ProjectPage } from './pages/ProjectPage'
 import { CustomCursor } from './components/CustomCursor/CustomCursor'
 import { MusicPlayer } from './components/MusicPlayer/MusicPlayer'
 
@@ -16,16 +16,30 @@ function App() {
   const { path, navigate } = useRouter()
   useScrollReveal(path)
   useDeferredClarity()
+  const [fading, setFading] = useState(false)
 
   const projectMatch = path.match(/^\/projects\/(.+)$/)
   const projectId = projectMatch?.[1]
+
+  function goHome() {
+    if (!projectId) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
+    setFading(true)
+    setTimeout(() => {
+      navigate('/')
+      window.scrollTo(0, 0)
+      setFading(false)
+    }, 250)
+  }
 
   return (
     <div>
       <CustomCursor />
       <MusicPlayer />
       <Header
-        onLogoClick={() => { navigate('/'); window.scrollTo(0, 0) }}
+        onLogoClick={goHome}
         onNavClick={(section) => {
           if (projectId) {
             navigate('/')
@@ -38,18 +52,18 @@ function App() {
         }}
       />
 
-      {projectId ? (
-        <Suspense fallback={null}>
+      <div className={`page-transition${fading ? ' page-transition--fading' : ''}`}>
+        {projectId ? (
           <ProjectPage id={projectId} navigate={navigate} />
-        </Suspense>
-      ) : (
-        <main>
-          <Hero />
-          <LogoBanner />
-          <SelectedWork navigate={navigate} />
-          <About />
-        </main>
-      )}
+        ) : (
+          <main>
+            <Hero />
+            <LogoBanner />
+            <SelectedWork navigate={navigate} />
+            <About />
+          </main>
+        )}
+      </div>
       <Footer />
     </div>
   )

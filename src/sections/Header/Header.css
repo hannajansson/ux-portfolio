@@ -8,7 +8,7 @@
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   padding: 24px var(--space-page);
-  background-color: var(--color-black);
+  background: rgba(255, 255, 255, 1);
 }
 
 .header-logo {
