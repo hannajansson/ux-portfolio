@@ -1,5 +1,4 @@
 import type { Project } from '../../data/types'
-import { AsciiImage } from '../AsciiImage/AsciiImage'
 import './ProjectCard.css'
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '')
@@ -7,10 +6,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '')
 interface ProjectCardProps {
   project: Project
   navigate: (to: string) => void
-  energyMode: boolean
 }
 
-export function ProjectCard({ project, navigate, energyMode }: ProjectCardProps) {
+export function ProjectCard({ project, navigate }: ProjectCardProps) {
   return (
     <article
       className="project-card"
@@ -26,9 +24,7 @@ export function ProjectCard({ project, navigate, energyMode }: ProjectCardProps)
       </div>
       <div className="project-image">
         {project.coverImage
-          ? energyMode
-            ? <AsciiImage src={base + project.coverImage} alt={project.title} className="project-img" fill />
-            : <img src={base + project.coverImage} alt={project.title} loading="lazy" className="project-img" />
+          ? <img src={base + project.coverImage} alt={project.title} loading="lazy" className="project-img" />
           : <div className="project-image-placeholder" />}
       </div>
       <div className="project-info">

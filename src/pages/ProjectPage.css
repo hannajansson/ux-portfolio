@@ -54,29 +54,6 @@
   aspect-ratio: 16 / 9;
 }
 
-.pp-cover-wrap::after {
-  content: 'Compressed on purpose to save energy';
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(15, 14, 14, 0.75);
-  color: #fff;
-  font-size: 11px;
-  font-family: var(--font-primary);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  padding: 5px 10px;
-  border-radius: 2px;
-  pointer-events: none;
-  opacity: 0;
-}
-
-.pp-cover-wrap:hover::after {
-  animation: img-tooltip 2.2s ease forwards;
-}
-
 .pp-cover {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -215,47 +192,15 @@
   overflow: hidden;
 }
 
-.pp-section-media::after {
-  content: 'Compressed on purpose to save energy';
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(15, 14, 14, 0.75);
-  color: #fff;
-  font-size: 11px;
-  font-family: var(--font-primary);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  padding: 5px 10px;
-  border-radius: 2px;
-  pointer-events: none;
-  opacity: 0;
-}
-
-.pp-section-media:hover::after {
-  animation: img-tooltip 2.2s ease forwards;
-}
-
 .pp-section-img {
   width: 100%;
   display: block;
   object-fit: cover;
-}
-
-.light-mode .pp-section-img {
   transition: transform 0.6s ease;
 }
 
-.light-mode .pp-section-media:hover .pp-section-img {
+.pp-section-media:hover .pp-section-img {
   transform: scale(1.05);
-}
-
-/* Cream paper background behind dithered canvas in energy mode */
-:not(.light-mode) .pp-cover-wrap,
-:not(.light-mode) .pp-section-media--energy {
-  background-color: rgb(232, 228, 218);
 }
 
 .pp-img-placeholder {
@@ -277,29 +222,6 @@
   padding: 80px 0;
   margin: 0 calc(-1 * var(--space-page)); /* bleed to edges */
   position: relative;
-}
-
-.pp-section--full-image::after {
-  content: 'Compressed on purpose to save energy';
-  position: absolute;
-  bottom: 96px; /* sits above the 80px bottom padding */
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(15, 14, 14, 0.75);
-  color: #fff;
-  font-size: 11px;
-  font-family: var(--font-primary);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  padding: 5px 10px;
-  border-radius: 2px;
-  pointer-events: none;
-  opacity: 0;
-}
-
-.pp-section--full-image:hover::after {
-  animation: img-tooltip 2.2s ease forwards;
 }
 
 .pp-full-img {

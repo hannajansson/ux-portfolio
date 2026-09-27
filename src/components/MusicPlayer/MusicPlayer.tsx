@@ -24,10 +24,6 @@ interface SpotifyEmbedController {
   addListener: (event: string, callback: (e: { data: { isPaused: boolean } }) => void) => void
 }
 
-interface MusicPlayerProps {
-  energyMode: boolean
-}
-
 function PlayIcon() {
   return (
     <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
@@ -45,7 +41,7 @@ function PauseIcon() {
   )
 }
 
-export function MusicPlayer({ energyMode }: MusicPlayerProps) {
+export function MusicPlayer() {
   const containerRef = useRef<HTMLDivElement>(null)
   const controllerRef = useRef<SpotifyEmbedController | null>(null)
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -93,14 +89,6 @@ export function MusicPlayer({ energyMode }: MusicPlayerProps) {
     }
   }, [])
 
-  // Pause when switching to dark/energy mode
-  useEffect(() => {
-    if (energyMode && playing) {
-      controllerRef.current?.pause()
-      setPlaying(false)
-    }
-  }, [energyMode, playing])
-
   function toggle() {
     const now = Date.now()
     if (now - lastToggleRef.current < 400) return
@@ -128,19 +116,16 @@ export function MusicPlayer({ energyMode }: MusicPlayerProps) {
         style={{ position: 'fixed', top: '-9999px', left: '-9999px', width: 1, height: 1 }}
       />
 
-      {/* Button only visible in light mode */}
-      {!energyMode && (
-        <div className="music-player-wrap">
-          <Button
-            onClick={toggle}
-            disabled={!ready}
-            aria-label={playing ? 'Pause music' : 'Play music'}
-            icon={playing ? <PauseIcon /> : <PlayIcon />}
-          >
-            {playing ? 'Pause' : '30s vibe'}
-          </Button>
-        </div>
-      )}
+      <div className="music-player-wrap">
+        <Button
+          onClick={toggle}
+          disabled={!ready}
+          aria-label={playing ? 'Pause music' : 'Play music'}
+          icon={playing ? <PauseIcon /> : <PlayIcon />}
+        >
+          {playing ? 'Pause' : '30s vibe'}
+        </Button>
+      </div>
     </>
   )
 }

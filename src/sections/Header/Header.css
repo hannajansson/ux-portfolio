@@ -114,7 +114,6 @@
 /* ─── Breakpoint ─────────────────────────────────────────────────────────── */
 
 @media (max-width: 768px) {
-  .header .toggle-wrap,
   .header-nav {
     display: none;
   }

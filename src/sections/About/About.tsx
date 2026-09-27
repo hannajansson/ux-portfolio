@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import profileImg from '../../assets/profile.webp'
-import { AsciiImage } from '../../components/AsciiImage/AsciiImage'
 import { Button } from '../../components/Button/Button'
 import './About.css'
 
@@ -25,11 +24,7 @@ const CLIENTS = [
   'Coompanion',
 ]
 
-interface AboutProps {
-  energyMode: boolean
-}
-
-export function About({ energyMode }: AboutProps) {
+export function About() {
   const [copied, setCopied] = useState(false)
 
   function copyEmail() {
@@ -88,11 +83,7 @@ export function About({ energyMode }: AboutProps) {
         </div>
 
         <div className="about-right" data-animate style={{ transitionDelay: '0.15s' }}>
-          {energyMode
-            ? <div className="about-photo-wrap">
-                <AsciiImage src={profileImg} alt="Hanna Jansson" loading="lazy" fill />
-              </div>
-            : <img src={profileImg} alt="Hanna Jansson" loading="lazy" className="about-photo" />}
+          <img src={profileImg} alt="Hanna Jansson" loading="lazy" className="about-photo" />
         </div>
       </div>
     </section>

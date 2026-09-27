@@ -1,4 +1,4 @@
-import { useState, lazy, Suspense } from 'react'
+import { lazy, Suspense } from 'react'
 import { useRouter } from './hooks/useRouter'
 import { useScrollReveal } from './hooks/useScrollReveal'
 import { useDeferredClarity } from './hooks/useDeferredClarity'
@@ -13,7 +13,6 @@ import { CustomCursor } from './components/CustomCursor/CustomCursor'
 import { MusicPlayer } from './components/MusicPlayer/MusicPlayer'
 
 function App() {
-  const [energyMode, setEnergyMode] = useState(false)
   const { path, navigate } = useRouter()
   useScrollReveal(path)
   useDeferredClarity()
@@ -21,15 +20,11 @@ function App() {
   const projectMatch = path.match(/^\/projects\/(.+)$/)
   const projectId = projectMatch?.[1]
 
-  // energyMode ON  → dark (no class, default CSS)
-  // energyMode OFF → light (.light-mode class)
   return (
-    <div className={energyMode ? '' : 'light-mode'}>
+    <div>
       <CustomCursor />
-      <MusicPlayer energyMode={energyMode} />
+      <MusicPlayer />
       <Header
-        energyMode={energyMode}
-        onToggle={() => setEnergyMode(v => !v)}
         onLogoClick={() => { navigate('/'); window.scrollTo(0, 0) }}
         onNavClick={(section) => {
           if (projectId) {
@@ -45,14 +40,14 @@ function App() {
 
       {projectId ? (
         <Suspense fallback={null}>
-          <ProjectPage id={projectId} navigate={navigate} energyMode={energyMode} />
+          <ProjectPage id={projectId} navigate={navigate} />
         </Suspense>
       ) : (
         <main>
           <Hero />
-          <LogoBanner energyMode={energyMode} />
-          <SelectedWork navigate={navigate} energyMode={energyMode} />
-          <About energyMode={energyMode} />
+          <LogoBanner />
+          <SelectedWork navigate={navigate} />
+          <About />
         </main>
       )}
       <Footer />

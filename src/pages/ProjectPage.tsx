@@ -1,6 +1,5 @@
 import { getProjectById, getAdjacentProjects } from '../data/index'
 import type { ProjectSection } from '../data/types'
-import { AsciiImage } from '../components/AsciiImage/AsciiImage'
 import './ProjectPage.css'
 
 const base = import.meta.env.BASE_URL  // e.g. '/portfolio/'
@@ -12,10 +11,9 @@ function asset(path: string) {
 interface ProjectPageProps {
   id: string
   navigate: (to: string) => void
-  energyMode: boolean
 }
 
-function SectionBlock({ section, energyMode }: { section: ProjectSection; energyMode: boolean }) {
+function SectionBlock({ section }: { section: ProjectSection }) {
   switch (section.type) {
     case 'text-only':
       return (
@@ -28,11 +26,9 @@ function SectionBlock({ section, energyMode }: { section: ProjectSection; energy
     case 'text-image':
       return (
         <div className={`pp-section pp-section--text-image pp-section--image-${section.imagePosition}`}>
-          <div className={`pp-section-media${energyMode ? ' pp-section-media--energy' : ''}`}>
+          <div className="pp-section-media">
             {section.image
-              ? energyMode
-                ? <AsciiImage src={asset(section.image)} alt={section.imageAlt ?? ''} className="pp-section-img" />
-                : <img src={asset(section.image)} alt={section.imageAlt ?? ''} loading="lazy" className="pp-section-img" />
+              ? <img src={asset(section.image)} alt={section.imageAlt ?? ''} loading="lazy" className="pp-section-img" />
               : <div className="pp-img-placeholder" />}
           </div>
           <div className="pp-section-copy">
@@ -52,9 +48,7 @@ function SectionBlock({ section, energyMode }: { section: ProjectSection; energy
       return (
         <div className="pp-section pp-section--full-image">
           {section.image
-            ? energyMode
-              ? <AsciiImage src={asset(section.image)} alt={section.imageAlt ?? ''} className="pp-full-img" />
-              : <img src={asset(section.image)} alt={section.imageAlt ?? ''} loading="lazy" className="pp-full-img" />
+            ? <img src={asset(section.image)} alt={section.imageAlt ?? ''} loading="lazy" className="pp-full-img" />
             : <div className="pp-img-placeholder pp-img-placeholder--full" />}
         </div>
       )
@@ -64,7 +58,7 @@ function SectionBlock({ section, energyMode }: { section: ProjectSection; energy
   }
 }
 
-export function ProjectPage({ id, navigate, energyMode }: ProjectPageProps) {
+export function ProjectPage({ id, navigate }: ProjectPageProps) {
   const project = getProjectById(id)
   const { prev, next } = getAdjacentProjects(id)
 
@@ -103,9 +97,7 @@ export function ProjectPage({ id, navigate, energyMode }: ProjectPageProps) {
       {/* ── Cover image ───────────────────────────────────────────── */}
       {project.coverImage
         ? <div className="pp-cover-wrap">
-            {energyMode
-              ? <AsciiImage src={asset(project.coverImage)} alt={project.title} className="pp-cover" loading="eager" />
-              : <img src={asset(project.coverImage)} alt={project.title} loading="eager" className="pp-cover" />}
+            <img src={asset(project.coverImage)} alt={project.title} loading="eager" className="pp-cover" />
           </div>
         : <div className="pp-cover pp-cover--placeholder" />}
 
@@ -124,7 +116,7 @@ export function ProjectPage({ id, navigate, energyMode }: ProjectPageProps) {
       {/* ── Content sections ──────────────────────────────────────── */}
       <div className="pp-body">
         {project.sections.map((section, i) => (
-          <SectionBlock key={i} section={section} energyMode={energyMode} />
+          <SectionBlock key={i} section={section} />
         ))}
       </div>
 

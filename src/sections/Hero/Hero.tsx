@@ -10,8 +10,7 @@ type Phase = 'jacquarda' | 'primary' | 'done'
 function TangleSVG() {
   return (
     <span className="hero-svg hero-svg--tangle" aria-hidden="true">
-      <img src={`${base}images/tangle-darkmode.svg`} alt="" className="hero-img hero-img--dark" />
-      <img src={`${base}images/tangle-lightmode.svg`} alt="" className="hero-img hero-img--light" />
+      <img src={`${base}images/tangle-lightmode.svg`} alt="" className="hero-img" />
     </span>
   )
 }
@@ -19,8 +18,7 @@ function TangleSVG() {
 function RainbowSVG() {
   return (
     <span className="hero-svg hero-svg--rainbow" aria-hidden="true">
-      <img src={`${base}images/rainbow-darkmode.svg`} alt="" className="hero-img hero-img--dark" />
-      <img src={`${base}images/rainbow-lightmode.svg`} alt="" className="hero-img hero-img--light" />
+      <img src={`${base}images/rainbow-lightmode.svg`} alt="" className="hero-img" />
     </span>
   )
 }

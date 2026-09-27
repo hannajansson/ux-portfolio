@@ -2,14 +2,14 @@
 
 :root {
   /* Colors */
-  --color-black: #0f0e0e;
-  --color-white: #ffffff;
+  --color-black: #ffffff;
+  --color-white: #0f0e0e;
 
   /* Semantic opacity aliases — never use raw hex for grey, use these */
-  --color-white-60: rgba(255, 255, 255, 0.6);
-  --color-white-40: rgba(255, 255, 255, 0.4);
-  --color-white-20: rgba(255, 255, 255, 0.2);
-  --color-white-10: rgba(255, 255, 255, 0.1);
+  --color-white-60: rgba(15, 14, 14, 0.6);
+  --color-white-40: rgba(15, 14, 14, 0.4);
+  --color-white-20: rgba(15, 14, 14, 0.2);
+  --color-white-10: rgba(15, 14, 14, 0.1);
 
   /* Font */
   --font-primary: 'Switzer', Arial, sans-serif;
@@ -40,15 +40,4 @@
 
   /* Transitions */
   --transition-fast: 0.2s ease;
-}
-
-/* ─── Light mode overrides ────────────────────────────────────────────────── */
-
-.light-mode {
-  --color-black: #ffffff;
-  --color-white: #0f0e0e;
-  --color-white-60: rgba(15, 14, 14, 0.6);
-  --color-white-40: rgba(15, 14, 14, 0.4);
-  --color-white-20: rgba(15, 14, 14, 0.2);
-  --color-white-10: rgba(15, 14, 14, 0.1);
 }

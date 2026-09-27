@@ -8,10 +8,9 @@ const FILTER_TAGS = ['AI', 'UX/UI', 'Product', 'Energy Efficient Design']
 
 interface SelectedWorkProps {
   navigate: (to: string) => void
-  energyMode: boolean
 }
 
-export function SelectedWork({ navigate, energyMode }: SelectedWorkProps) {
+export function SelectedWork({ navigate }: SelectedWorkProps) {
   const [activeTag, setActiveTag] = useState<string | null>(null)
 
   const filtered = activeTag
@@ -49,7 +48,6 @@ export function SelectedWork({ navigate, energyMode }: SelectedWorkProps) {
             key={project.id}
             project={project}
             navigate={navigate}
-            energyMode={energyMode}
           />
         ))}
       </div>

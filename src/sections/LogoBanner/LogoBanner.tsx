@@ -13,21 +13,6 @@ const LOGOS_ANIMATED = [
   { name: 'WFP',             file: 'logo-wfp.webp',             size: 'xl' },
 ]
 
-const LOGOS_STATIC = [
-  { name: 'Ovulai',          file: 'logo-ovulai.webp',          size: 'xs' },
-  { name: 'Polestar',        file: 'logo-polestar.webp',        size: 'lg' },
-  { name: 'Omega Point',     file: 'logo-omegapoint.webp',      size: 'sm' },
-  { name: 'Scania',          file: 'logo-scania.webp',          size: 'xl' },
-  { name: 'Coompanion',      file: 'logo-coompanion.webp',      size: 'xs' },
-  { name: 'Senseworks',      file: 'logo-senseworks.webp',      size: 'xs' },
-  { name: 'WFP',             file: 'logo-wfp.webp',             size: 'xl' },
-  { name: 'Property Finder', file: 'logo-propertyfinder.webp', size: 'sm' },
-]
-
-interface LogoBannerProps {
-  energyMode: boolean
-}
-
 function LogoImg({ name, file, size }: { name: string; file: string; size: string }) {
   return (
     <span className="banner-item">
@@ -41,19 +26,7 @@ function LogoImg({ name, file, size }: { name: string; file: string; size: strin
   )
 }
 
-export function LogoBanner({ energyMode }: LogoBannerProps) {
-  if (energyMode) {
-    return (
-      <div className="banner" data-animate>
-        <div className="banner-track banner-track--static">
-          {LOGOS_STATIC.map((logo) => (
-            <LogoImg key={logo.name} {...logo} />
-          ))}
-        </div>
-      </div>
-    )
-  }
-
+export function LogoBanner() {
   return (
     <div className="banner" data-animate>
       <div className="banner-track" aria-hidden="true">

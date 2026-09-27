@@ -106,21 +106,12 @@
   }
 }
 
-/* ─── Dark/light mode image switching ────────────────────────────────────── */
-
 .hero-img {
-  display: block;        /* consistent baseline — no inline shift in either mode */
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
-
-/* Dark mode (default): show dark, hide light */
-.hero-img--light { display: none; }
-
-/* Light mode: hide dark, show light */
-.light-mode .hero-img--dark { display: none; }
-.light-mode .hero-img--light { display: block; }
 
 /* ─── Complexity hover ────────────────────────────────────────────────────── */
 

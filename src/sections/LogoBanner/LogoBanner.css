@@ -1,10 +1,10 @@
 .banner {
   width: 100%;
   overflow: hidden;
-  border-top: 1px solid var(--color-white-20);
-  border-bottom: 1px solid var(--color-white-20);
+  border-top: 1px solid var(--color-white);
+  border-bottom: 1px solid var(--color-white);
   padding: 10px 0;
-  background-color: var(--color-white);
+  background-color: var(--color-black);
 }
 
 .banner-track {
@@ -31,20 +31,6 @@
 .banner-logo--sm { height: 28px; }
 .banner-logo--lg { height: 38px; }
 .banner-logo--xl { height: 52px; }
-
-/* ─── Light mode ──────────────────────────────────────────────────────────── */
-
-.light-mode .banner {
-  background-color: var(--color-black);
-  border-top-color: var(--color-white);
-  border-bottom-color: var(--color-white);
-}
-
-.banner-track--static {
-  width: 100%;
-  animation: none;
-  justify-content: space-between;
-}
 
 @media (max-width: 768px) {
   .banner-item {
